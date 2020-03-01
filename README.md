@@ -25,6 +25,10 @@ Data Analysis files:
 | presentation.py | Used to manually rate answers during the presentation through a graphical interface instead of the console      |
 | results_of_manual_rating.py | Uses to display the results of the manual rating in a nice way for the paper     |
 | Visualizer.py | Used to generate LateX graphs with Matplotlib from data dumps      |
+| SQL files | All the database queries used to gain knowledge from the data. Most queries are commented and explained.  |
 
-SQL files:
-All the database queries used to gain knowledge from the data. Most queries are commented and explained. 
+Data Acquision files:
+
+| Files         | Usage         |
+| ------------- |:-------------:|
+| QueryFile.sql | Used to get the data from the live database of Stack Exchange Meta. Only the important skeleton queries, because one query for a 3 month interval is the same as for all other months with only changes to the time interval|
