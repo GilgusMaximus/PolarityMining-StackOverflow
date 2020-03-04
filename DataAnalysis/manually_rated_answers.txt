@@ -1,0 +1,1463 @@
+-------------Answers from absolute_neutral_answers.csv number 0----------------
+Try
+
+
+
+Details:
+
+
+-------------Answers from absolute_neutral_answers.csv number 1----------------
+That package is part of the .
+
+The :
+
+
+  Performs Gram-Schmidt Orthogonalization on a set of vectors
+
+
+It is .
+-------------Answers from absolute_neutral_answers.csv number 2----------------
+First convert both columns in date using to_datetime
+then subtract and get days using .dt.date
+
+
+-------------Answers from absolute_neutral_answers.csv number 3----------------
+Use g++ as linker:
+
+
+-------------Answers from absolute_neutral_answers.csv number 4----------------
+Considering that the crucial sequence  should be matched in strict order - use straight-forward approach:
+
+
+
+The output:
+
+
+-------------Answers from absolute_neutral_answers.csv number 5----------------
+I found it in the documentation:
+
+
+"Because Pynsist makes use of the “bundled” versions of Python the tkinter module isn’t included by default. If your application relies on tkinter for a GUI then you need to find the following assets..."
+-------------Answers from absolute_neutral_answers.csv number 6----------------
+For latest versions of Ubuntu and other Debian based distros u can use
+
+
+-------------Answers from absolute_neutral_answers.csv number 7----------------
+You don t have to use . This should do it.
+
+
+
+.
+
+It replaces the space character with the newline character.
+-------------Answers from absolute_neutral_answers.csv number 8----------------
+Statements are allowed only inside functions.
+
+Add
+
+
+
+before the for loop, and
+
+
+
+after it.  Or, if  is in another file, define some other function to contain the loop.
+-------------Answers from absolute_neutral_answers.csv number 9----------------
+Another approach using  function.
+
+You can set how many digits to .
+
+
+-------------Answers from absolute_neutral_answers.csv number 10----------------
+It is much more complicated. Take a look on the source of the softmath library (for example ). Clone it and analyze. 
+-------------Answers from absolute_neutral_answers.csv number 11----------------
+You can use . Periodically run callback that will log/notify the difference of loop s time and period interval time.
+
+
+
+example
+
+
+
+output
+
+
+-------------Answers from absolute_neutral_answers.csv number 12----------------
+You can specify separately the required libraries and check if they are installed and if not then you can install them automatically.
+
+Have a look at:
+
+
+-------------Answers from absolute_neutral_answers.csv number 13----------------
+Use  to read an entire line. Parse the line with . Using an array ( )for the substrings simplifies the while loop .
+
+
+-------------Answers from absolute_neutral_answers.csv number 14----------------
+The simplest way I can immediately think of is to declare
+
+
+
+While it might get verbose after a while, it should work.
+-------------Answers from absolute_neutral_answers.csv number 15----------------
+Following , try this code:
+
+
+
+Note: this can return an incorrect result if 32bit Python is running on a 64bit operating system.
+-------------Answers from absolute_neutral_answers.csv number 16----------------
+While going through each character, you can simply check if any of the digits is a . If you find one that is, then the input is a double.
+
+
+-------------Answers from absolute_neutral_answers.csv number 17----------------
+You need  with  and last for remove column name add :
+
+
+-------------Answers from absolute_neutral_answers.csv number 18----------------
+You can deserialise without saving to the database.
+
+
+
+This will return DeserializedObject instances. You can find more info in the 
+-------------Answers from absolute_neutral_answers.csv number 19----------------
+If the name is found in names to be converted, replace them.
+
+
+-------------Answers from neutral_answers.csv number 0----------------
+You need to reopen  on every iteration. Move that code inside the loop. Otherwise, you reach the end of  after the first outer iteration, and you have nothing left to iterate over in the next round of the outer loop.
+-------------Answers from neutral_answers.csv number 1----------------
+It took me some time, but now I actually found the place, where it all derails on  error. It s actually an undocumented feature in flask-restful. Look at  here. Whatever message you chose persists until that very place and then it becomes the default. What we need now is just put  to our config and everything works as intended. 
+
+Why is this code even there in the first place? OK, perhaps, I can live with that, but it should be all over the documentation. Even when I googled the name of the constant, I only got a couple of GitHub issues (, ).
+
+Anyways, the mystery is officially solved.
+-------------Answers from neutral_answers.csv number 2----------------
+I think you should add extern "C" to your notmain function header to prevent c++ compiler from altering  function name.
+-------------Answers from neutral_answers.csv number 3----------------
+This article here  says that Retina displays (high-DPI displays) are going to try to display 2x more pixels in the same area. Area that is also measured in pixels, the pixels you actually declare in CSS.
+
+So this is where my confusion came from. The solution was to generate the thumbnails twice the size being displayed.  
+-------------Answers from neutral_answers.csv number 4----------------
+The two error messages mean the same thing. The only difference is that you get the first error message if the module you re importing is considered to be a "popular" third party library -- specifically, if it s one of the modules . In this case,  is a member of that list, but  isn t.
+
+The reason why mypy special-cases these modules is largely for usability: it s somewhat confusing to get an error message like "Cannot find module named  blah " when you ve seemingly installed it via pip. So, it special-cases 3rd party libraries that are likely to be commonly used so it can at least improve the user experience there.
+
+A follow-up question you might have is "why doesn t mypy just look at what s pip-installed and use the first error message whenever you try importing anything that s pip-installed?". After all, mypy needs to do this anyways to try and find  -- packages that declare they come bundled with type hints.
+
+Well, mypy probably could be doing that -- but this section of the codebase was added before PEP 561 was a thing (before mypy really needed to be scanning pip-installed packages), and I suspect nobody s really thought about this corner of the codebase for a long time.
+-------------Answers from neutral_answers.csv number 5----------------
+Problem is in the prototype of function:
+
+
+
+The function gets a NULL pointer value, sets it to a valid location by malloc but doesn t in any way return it to calling function.
+It should be 
+
+
+-------------Answers from neutral_answers.csv number 6----------------
+If you expect your keys to ordinarily be strings, a more appropriate solution would be to use a  /  clause.
+
+Here we catch , which will occur only for non-string elements.
+
+
+
+Unfortunately, this will not work with a dictionary comprehension, since  and .
+-------------Answers from neutral_answers.csv number 7----------------
+You had a follow up question in a commment, and I don t have enough rep to comment, so I ll leave this here.
+
+You said you were assigning the text to a label, but it was not updating. I m not 100% sure what you mean, but here s a working example of what I m doing that should work for you as well.
+
+
+
+In this case, the key part that updates the label widget is the 
+ call.
+-------------Answers from neutral_answers.csv number 8----------------
+This line  is the cause.
+
+You decode  as utf-8 into an unicode string. Fine until here.
+
+But you next try to concatenate it with a raw string  /n  (BTW, I think you really wanted ) and python try to convert the unicode string to an ascii raw string giving the error.
+
+You should concatenate with a unicode string to obtain a unicode string without conversion : 
+
+
+
+If this is not enough, it could be because your environment cannot directly print unicode strings. Then you should explictely encode it in the native charset of your system :
+
+
+
+[here replace  cp850  (my charset) with the charset on your system]
+-------------Answers from neutral_answers.csv number 9----------------
+Many way to do this but without creating a number of intermediate lists you can simply create an iterator and use a generator to construct the string:
+
+
+-------------Answers from neutral_answers.csv number 10----------------
+I understood that your problem is that you need to crawl all the items whose class names include "_3pw9 _2pi4 _2ge8". 
+
+If that is true, you should consider changing your last line to 
+
+
+
+Notice that I changed the underscore after  to an asterisk, which is the official syntax for "name contains". 
+-------------Answers from neutral_answers.csv number 11----------------
+It wont be deleted because when you define the function  it has a reference to the  of its module:
+
+
+
+If this wasn t true, then whenever you import a function into a different module the function would use the  of that module. This is something you do not want.
+There will be a big issue with namespace collision, so that some functions would start behaving in different ways depending on where they were imported.
+-------------Answers from neutral_answers.csv number 12----------------
+I think they are quite the same, except that one updated the original list, one use (read only) it. No differences in quality.
+-------------Answers from neutral_answers.csv number 13----------------
+
+  Edit
+
+
+Those methods are not class methods, are instance method, make an instance, and call them:
+
+Also, taking a better look on it, you had another sort of problem, I will comment:
+
+
+-------------Answers from neutral_answers.csv number 14----------------
+Unfortunately, I am unable to find anything related "Tython". However, if searching twitter data (in this case posts) and/or gathering metadata is your goal, I would recommend you having a look into the library . 
+
+Here is a quick example from the provided link with searching for Twitter-posts containing the words  and .
+
+
+-------------Answers from neutral_answers.csv number 15----------------
+You are getting Integrity error because it s expecting the  but you are sending the  related to author. Try this
+
+serializers.py
+
+
+-------------Answers from neutral_answers.csv number 16----------------
+Instead of doing , you might find it simpler to do  where  is an easy-to-handle date, ie "Jan 0" of .
+
+
+
+Let s define a couple of functions:
+
+
+
+then the difference between two dates becomes:
+
+
+
+and because of the symmetry in this answer it will also happily do negative differences:
+
+
+-------------Answers from neutral_answers.csv number 17----------------
+I eventually solved it. I d missed that subjectAltName is considered a standard extension. So it can be added using pyOpenSSL s method add_extensions.
+
+More info can be found at  
+-------------Answers from neutral_answers.csv number 18----------------
+this works ok:
+
+
+
+I m not entirely sure why the newer code works over the older stuff.
+
+FYI: the request code never worked either
+
+
+
+I kept getting an Unauthorized http errors
+-------------Answers from neutral_answers.csv number 19----------------
+As I did not see the correct implementation, I recoded mine this way...
+
+
+
+Assumption of being "18" on the 28th of Feb when born on the 29th is just wrong.
+Swapping the bounds can be left out ... it is just a personal convenience for my code :)
+-------------Answers from positive_answers.csv number 0----------------
+
+Use  to get where non-nulls are.
+Then use  to ge the crosstab.
+Finally, use  to zero out the diagonal.  
+
+
+
+
+
+
+
+
+Note:
+I used this to ensure my values were numeric.  
+
+
+-------------Answers from positive_answers.csv number 1----------------
+Pandas will recognise a value as null if it is a  object, which will print as  in the DataFrame. Your missing values are probably empty strings, which Pandas doesn t recognise as null. To fix this, you can convert the empty stings (or whatever is in your empty cells) to  objects using , and then call on your DataFrame to delete rows with null tenants.
+
+To demonstrate, we create a DataFrame with some random values and some empty strings in a  column:
+
+
+
+Now we replace any empty strings in the  column with  objects, like so:
+
+
+
+Now we can drop the null values:
+
+
+-------------Answers from positive_answers.csv number 2----------------
+Sorting the array is certainly terser code, here s an alternative with a manual loop
+
+
+
+This just adds everything in and removes the max and min at the end.
+-------------Answers from positive_answers.csv number 3----------------
+You are including a C++ header in a C source file (). You cannot expect , the C source compiler invoked by Cmake when it encounters , to understand C++. 
+
+It works in  because that is a C++ compiler. Do note, g++ will treat  files as if they were C++ (The way it does for  and ). CMake does not do this because . 
+-------------Answers from positive_answers.csv number 4----------------
+Try to run  with this param: , this will tell your app to listen request from any host. Like so:
+
+
+-------------Answers from positive_answers.csv number 5----------------
+You can read and store every paths from each folder in a separate list and select equal number of them. 
+
+
+
+to select:
+
+
+
+n - number of images from each folder
+-------------Answers from positive_answers.csv number 6----------------
+Here is an alternative solution:
+
+
+
+This function first asserts that you have provided it with exactly 2 of the three quantities. Then it returns the third quantity. So you do not have to tell this function explicitly for which quantity to solve, because this is obvious from the given quantities.
+
+
+-------------Answers from positive_answers.csv number 7----------------
+Q1: No.  Dict of lists is slower for membership tests.  You can avoid the redundant 1 values by using a dict of s.  
+
+However, when working with graphs, there s frequently extra info we want to associate with nodes and edges ("labels", "coloring"). E.g. in your example you might store flight price or duration for each edge - it would naturally take the place of the 1s.
+
+(This works well for directed graphs, where LAX->SAE and SAE->LAX prices are independent.  Undirected graphs are trickier to implement; a neat trick is a dict whose keys are 2-element s; but it might be simplest to duplicate data.)
+
+Q2: No reason to, wasteful (most graphs have much less than n**2 edges) and is hard to maintain when dynamically adding/removing nodes.  You could use  to simulate 0 wherever you haven t stored 1 (caveat: it ll store the 0s when accessed) but I recommend only looking at  for connectivity checks, leaving  for extra edge data, if any.
+-------------Answers from positive_answers.csv number 8----------------
+Are you on RHEL or Ubuntu? You might want to try reinstalling and making sure that the installation is correct. You can install from 
+-------------Answers from positive_answers.csv number 9----------------
+An example of using lxml which I highly recommend to process your data. (nb: written for Py2.x but easy to adapt for Py3.x)
+
+
+
+Prints:
+
+
+-------------Answers from positive_answers.csv number 10----------------
+This might not be that efficient but you can convert those tuples into list, extend them and then apply series i.e 
+
+
+-------------Answers from positive_answers.csv number 11----------------
+I prefer  with  integration for  development projects.  
+
+It will solve your purpose and will show you the errors in RED before you run your program.  but it requires your project to be properly configured under eclipse as below:
+
+
+Configure Python interpreter after integrating PyDev with eclipse
+Create / Import your project &amp; set as python pydev project
+Configure your source folder ( Give information to eclipse that which folders contains python source code under your entire project tree)
+
+
+You re done &amp; setup now for general python programming setup.
+
+Further more you can integrate your Eclipse/Pydev project with  as mentioned by  which checks your code quality &amp; bugs on the go while you re coding.
+
+References:
+
+
+
+
+-------------Answers from positive_answers.csv number 12----------------
+I would assume this is a problem with your cwd (current working directory). An easy way to test this would be to go to the root (cd /) then run:
+
+
+
+You should get the same error. The path you will want to use will depend on the place where you normally run the script from. I would guess it would either be: 
+
+/home/nezap/webapps/bonzer/bonzer/apps/base 
+
+or 
+
+/home/nezap/webapps/bonzer/bonzer/
+
+So your solution would either be:
+
+
+
+or 
+
+
+
+basically you are telling cron to change directory to that path, then if that works(the &amp;&amp;) run the following command.
+-------------Answers from positive_answers.csv number 13----------------
+The JVM starts its own threads which it needs to run. You trigger this thread creation by starting the JVM.
+-------------Answers from positive_answers.csv number 14----------------
+You can t.  Here s the reasoning for those who d like to understand:  
+
+1st-- Python code is executed by it s interpreter, a program written in C.  (The Python Software Foundation s Interpreter is properly called "Cpython" to distinguish it from third parter Interpreters that can also run Python code).  Python code is interpreted by Cpython, and it displays it s content into a python console, like "Idle" or a "Terminal Emulator" or even directly on the Computer Window s screen as graphics, using the "X11" [X Windows for Linux Unix], "Quartz Compositor MacX" [Macintosh], [or "DWM" [Destop Windows Manager for Windows]. (Cpython has 3 basic versions, one implementation each for Mac, Windows and Unix/Linux) 
+
+2nd-- You can also think of a web browser as a program interpreter.  But it can t interpret Python code.  All they knows how to interpret is HTML, CSS and Javascript. But instead of being fed out to third party console or the computers Windowing System, the Web Browser acts like a Virtual Machine in that it interprets AND displays the results within it s own display environment, the Web Browser.   Unfortunately, none of those browsers have been programmed to interpret Python Code.  
+
+3rd--  Python is a VERY high level language, meaning that it was designed by lower level languages.  Before there was Python there had to be C. Before there was C there had to be Assembly.  Before there was Assembly there had to be Machine Language.  Computer Code evolves in complexity in a way that can be compared to biology, sort of.  Javascript is also VERY highly evolved, but it s evolution was entirely dependent on Web Browsers.  Python s evolution depended on Terminal Emulators and a computer s Windowing System [X11, MacX, or DWM] 
+-------------Answers from positive_answers.csv number 15----------------
+R solution (hopefully)
+
+I think I got this, skip down a bit for the piece you want. The code between here and there is so its all in context, and can be seen working in R.
+
+
+
+Make the data frame
+
+
+
+Add some rows with zeros
+
+
+
+Now for the bit you want.
+
+
+
+That gives us our list of rows to remove. Now we need to clean that list up (remove the zeroes)
+
+
+
+With the list cleaned up we can just remove the data
+
+
+-------------Answers from positive_answers.csv number 16----------------
+On the flip side of this coin, if you plan on using multiple times on the same file you can store in a dictionary to make lookup in constant time (memory efficiency is O(n) though):
+
+
+-------------Answers from positive_answers.csv number 17----------------
+Is this the sort of thing you want (using a simpler sort on a 1d array)?
+
+
+-------------Answers from positive_answers.csv number 18----------------
+Use a dict here, dicts provide  lookup compared to  which is an  operation.
+
+And this will work for strings as well.
+
+
+
+A memory efficient version to create the above dict:
+
+
+-------------Answers from positive_answers.csv number 19----------------
+Running python selenium tests in latest Firefox browser (Version 47 above)
+
+“Marionette" or "Gecko Driver” is the future version of firefox driver. Firefox 47+ is not compatible with the driver used in Selenium 2.53, and Selenium 3+ will be using a new driver called "Marionette" or "Gecko Driver" (which isn t officially released yet).
+
+Prerequisites:
+
+•   Mozilla firefox : Version 50.0.2(Version 47 above)
+
+•   Selenium : Version 3.0.2 
+
+•   Geckodriver : Version 0.11.1
+
+•   Python : Version 2.7.3
+
+Setup:
+
+•   Selenium : 
+
+•   Geckodriver : Download the geckodriver from  , unzip the file and place it in a folder
+
+•   Set the ‘Path’ environment variable with geckodriver path
+
+Sample script:
+
+
+
+#Provide the Firefox binary path
+
+
+
+#Set ‘marionette’ browser to True
+
+
+
+#Launch the Firefox instance by specifying the geckodriver executable path
+
+
+
+You are done ...!
+-------------Answers from very_positive_answers.csv number 0----------------
+You could use  and  for Windows and Mac. Linux and MacOS should already have python installed though. These allow you to make executable python applications that do not require python to be installed on the users  computer.
+
+I hope this helped :)
+-------------Answers from very_positive_answers.csv number 1----------------
+LLVMStructCreateNamed creates an opaque struct type (like  would in C), meaning LLVM doesn t know what the elements inside are. You ll need to populate that struct with a definition, likely using . So something like:
+
+
+
+After that,  should be able to dereference the members, which it looks to me like you ve done appropriately. 
+-------------Answers from very_positive_answers.csv number 2----------------
+It is a combination of things.  The recommended  for PuTTY is , but due to inertia, most people use .  The line-drawing support in the xterm terminal description is different from PuTTY s assumptions because  supports , which has some limitations with the way the alternate character set is managed (see ).
+
+If you use  to compare, you may see these lines which deal with the alternate character set:
+
+
+
+VT100s can have two character sets "designated", referred to as G0 and G1:
+
+
+The "xterm" line-drawing works by changing the designation of G0 between the ASCII and line-drawing characters,
+the "putty" line-drawing works by designating ASCII in G0 and line-drawing in G1 and switching between the two with the shift-in/shift-out control characters.
+
+
+Although both are VT100-compatible, the xterm scheme does not work with PuTTY.  Because of the tie-in with , the normal terminal description for  will not change (unless it proves possible to modify  to solve the problem for its users), so a workaround is needed for users of PuTTY:
+
+
+use a different terminal description as recommended, e.g., .  PuTTY s settings dialog lets you set environment variables to pass to the remote machine.
+
+This has the drawback that some systems do not have the full ncurses terminal database installed, due to "size" (it is 6.8Mb on my local machine).  Also,  may not be on the list of allowed ssh environment variables.
+you can compile your own terminfo entry with ncurses  tic, e.g.,
+
+
+use GNU screen.  It does its own fixes, and happens to compensate for PuTTY s problems.
+
+
+Further reading
+
+
+ (VT100 manual)
+ (VT220 manual)
+ (ncurses FAQ)
+
+
+-------------Answers from very_positive_answers.csv number 3----------------
+ can be executed if  is a list but  is not (i.e., if  is a normal "flat" list).  In this case,  will work fine.  When the next line recursively calls  a typerror will be raised when the recursive call tries to iterate over the "sublist" (which is not iterable).  This TypeError is caught and the recursive call yields the entire input list back, so it is then iterated over by the  call.  In other words,  winds up doing  if sublist is already flat.
+
+The key thing to recognize is that even a non-nested list will result in a recursive call.  A call like  will result in two yields: the recursive call will yield  to the outer call, and the outer call immediately re-yields .
+
+This version of the function may help to understand what s going on:
+
+
+-------------Answers from very_positive_answers.csv number 4----------------
+If the command line is like this:
+
+
+
+It s ok to add some code like this:
+
+
+
+Then you can parse the args object, args_dict variable.  The value is like this:
+
+
+
+You can iterate both  input  key and  mode  key in the args_dict variable, for the remain of input list(it s  test2.txt  here), you can open it with  r  mode.
+
+But if your command line have to write something like:
+
+
+
+I don t think it s easy to parse the b.txt with  r  mode, because argparse don t know which mode is bind to the relative input...
+
+
+
+Get inspiration from @mgilson  s comment and answer, I have found another way to define Action subclass, and make the  mode  input useful.
+
+
+
+And the client code can be something like this:
+
+
+
+Then we can parse the args object, args_dict variable more easier.  If the command line is like this: 
+
+
+
+The result will be:
+
+
+
+In the other special way, if the command line is like this:
+
+
+
+The result will be:
+
+
+
+And then you can parse the dict more easier, the  test2.txt ~ test4.txt  in the input argument will have the default  r  mode :)
+-------------Answers from very_positive_answers.csv number 5----------------
+Well, the python package is probably the best way to solve your problem. You can read more . Python packages have no need to be built and not always are created for sharing, so do not worry.
+
+Assume you had this file structure:
+
+
+
+Then you can add file  in your  directory with next content:
+
+
+
+Init file must be updated if you change filenames, so maybe it isn t best solution for you. Now, the directory looks like:
+
+
+
+And it s all -  now is a package. You can import all files by one import statement and use them:
+
+
+
+And if your  is somewhere else, you can update  before importing as next:
+
+
+
+More detailed explanations can be found 
+-------------Answers from very_positive_answers.csv number 6----------------
+Matplotlib gives you a nice level of access:
+
+
+you can change all details of the plots, modify ticks, labels, spacing, ...
+it has many sensible defaults, so a oneliner  produces fairly nice plots
+it plays well with numpy and other numerical tools, so you can pass your data science objects directly to the plotting tool without going through some intermediate io
+
+-------------Answers from very_positive_answers.csv number 7----------------
+You will need to carefully balance thresholds in textual similarity and in numerical similarity. There won t be an easy solution, and unless you have really huge data, a manual approach may be best.
+
+Textual similarity of short strings is highly unreliable.
+
+For example: "dog" and "fog" only differ by a single letter, but are very unlikely typos. They have Levenshtein distance 1, the smallest non-zero value! Because of this, if you rely on Levenshtein, you will have plenty of false positives - okay if you manually verify them, but not for automatic processing.
+
+So at the minimum you ll need to use something that knows about (a) existing words, that are unlikely misspelled, (b) common misspellings, and (c) phonetic similarity to estimate how likely a word is misspelled, (d) keyboard similarity, how likely a word is mistyped...
+-------------Answers from very_positive_answers.csv number 8----------------
+An actually branchless version that requires a single conversion between floating point and integer domains would shift the value  to all positive or all negative range, then cast/truncate and shift it back.
+
+
+
+As pointed in the comments, this implementation relies on the temporary value  not overflowing.
+
+On 64-bit platforms, the original code using int64_t intermediate value will result in three instruction kernel, the same available for int32_t reduced range floor/ceil, where  --
+
+
+-------------Answers from very_positive_answers.csv number 9----------------
+Most often I see it more like a personal preference.
+
+From the book of good practices in django.  TWO SCOOPS OF DJANGO 1.8 
+
+
+  Th􏰀e simplicity of FBVs comes at the expense of code reuse: FBVs
+  don’t have the same ability to inherit from superclasses the way that
+  CBVs do. 􏰀ey do have the advantage of being more obviously functional
+  in nature, which lends itself to a number of interesting strategies
+
+
+I agree with @Alasdair, your function based view is easier to understand.  
+
+I only change it in the code:
+
+
+
+and in the html, just iterator on thread comments:
+
+
+
+For since it is good practice, I think it would also help improve performance.
+-------------Answers from very_positive_answers.csv number 10----------------
+This is one of the best article I ever have seen on Floating Point Arithmetic. 
+
+
+  Current implementations of IEEE 754 arithmetic can be divided into two
+  groups distinguished by the degree to which they support different
+  floating-point formats in hardware. Extended-based systems,
+  exemplified by the Intel x86 family of processors, provide full
+  support for an extended double precision format but only partial
+  support for single and double precision: they provide instructions to
+  load or store data in single and double precision, converting it
+  on-the-fly to or from the extended double format, and they provide
+  special modes (not the default) in which the results of arithmetic
+  operations are rounded to single or double precision even though they
+  are kept in registers in extended double format. (Motorola 68000
+  series processors round results to both the precision and range of the
+  single or double formats in these modes. Intel x86 and compatible
+  processors round results to the precision of the single or double
+  formats but retain the same range as the extended double format.)
+  Single/double systems, including most RISC processors, provide full
+  support for single and double precision formats but no support for an
+  IEEE-compliant extended double precision format. (The IBM POWER
+  architecture provides only partial support for single precision, but
+  for the purpose of this section, we classify it as a single/double
+  system.)
+
+-------------Answers from very_positive_answers.csv number 11----------------
+Who says it hashes well? 
+
+A hash function maps an input, which in this case is a string, to an output, in this case an . The size of the input is  where  is "raised to the power of".
+
+If your input string can contain only the characters  and  then the size of the input would be 
+
+The size of the output is fixed, at the largest number representable in an .
+
+This means that there is a "number of characters in the string" where the size of the input will be greater than the size of the output. By the  you will definitely start having collisions. In reality, you probably had collisions before this threshold is reached.
+
+If you want to use a hash function in your  or any other data structure, make sure it is tuned to your specific input. Don t go picking up the first one you find in the internet. A good hash function provides as few collisions as possible for your specific inputs.
+
+A general purpose hash function may be sub-optimal in your specific case. A hash function specifically designed for some inputs (and this may very well be such a function) may work significantly worse on your inputs.
+-------------Answers from very_positive_answers.csv number 12----------------
+The way I interpret you question: When interpreting the bit pattern of a floating point number in memory as a int, will the usual comparison operators behave the same for floating point numbers and integers.
+
+The answer is no. Strictly speaking, the C standard has a few possible integer representations and even more possible float representations. But even limiting ourselves to what pretty much everyone does - two s complement integers and ieee754 binary32 floating point, the answer is still no.
+
+The simplest example: floating points have two zeroes. The bit pattern 0x00000000 and the bit pattern 0x80000000 represent the numbers 0 and -0. They both compare equal as floating point, they wouldn t if interpreted as integers. Then you have two infinities, and a whole lot of bit patterns that represent NaN.
+
+You could enumerate the special cases and avoid them and then I m pretty sure that a comparison as integers would work, but whatever performance gain you get from integer comparisons (which I assume is the point here) you d gain you d lose much more in avoiding the special cases.
+
+Responding to your last edit: Yes, in the range 0 to 1, the bit pattern for ieee754 floating point numbers is such that when interpreted as integers the normal integer comparison operators will behave the way you want. It s a bad idea, but it would work.
+-------------Answers from very_positive_answers.csv number 13----------------
+Maybe this one is an overkill, but you can use  to read a string in a dataframe and then get the desired value:  
+
+
+
+ will look like this:
+
+
+
+And
+
+
+
+will give your .  
+
+P.S.: This was based on  answer for the question "How to create a Pandas DataFrame from a string".
+-------------Answers from very_positive_answers.csv number 14----------------
+The problem you are having here is that  is causing Django to print  (new lines and all) inside what you hoped would be Javascript.
+
+So to be clear you are hope to get:
+
+
+
+but you re actually getting 
+
+
+
+which isn t valid javascript. (tip, right click, view page source).
+
+The easiest solution is to do:
+
+
+
+By the way markdown2 is very slow,  is a great option instead.      
+-------------Answers from very_positive_answers.csv number 15----------------
+I see the following problems:
+
+
+ does not free the memory for its  object.
+ won t free the element if the data allocation fails. This doesn t matter that much since you re exiting but it would be good form in case you ever decide to return an error (in other words, it will stop a memory leak).
+
+
+However, I ve tested that code by inserting a new element, an element before that one then an element at the end, and it seems fine. What priority values are you inserting (in order)?
+
+And you may want to post the code that s calling this code. It s quite possible it may be a memory corruption issue unrelated to this actual code.
+
+
+
+While I appreciate your attempt in introducing the  stuff to keep your code nice, you really should just bite the bullet and get rid of it. Its removal will probably more than offset the minimal amount of extra code you re going to have to add for handling a truly empty list. This simpler code should handle all scenarios without the added processing required to keep extra pointers synchronised.
+
+I haven t actually tested this other than in my wetware but it should (hopefully) work okay:
+
+
+
+&nbsp;
+
+
+
+&nbsp;
+
+
+
+&nbsp;
+
+
+
+Keep in mind that  makes a copy of the memory so that you can pass it dynamically allocated memory or otherwise. That function doesn t accept responsibility for freeing any allocated memory that you pass to it. If it s dynamically allocated, you still have to free it yourself. It was done this way so you could pass in any sort of memory.
+
+On the other hand,  just passes you back the allocated memory so you are responsible for freeing it when you re done. The memory you receive will have always been obtained via .
+
+You could optimise  so that you could specify that the memory being passed in is allocated via  and you are passing responsibility by changing the first part of the function from:
+
+
+
+to:
+
+
+
+In other words, set the final parameter to true if the data was obtained via  and you agree to give up responsibility for it - that way, the function just takes your memory block as is.
+
+Otherwise, use false and a copy will be made.
+-------------Answers from very_positive_answers.csv number 16----------------
+This is generally not a great way of doing what you want to do but the reason why simply changing  to  won t work is because the  check needs to be the first check in the  statement.
+
+If you insist to do it this way, try something like this:
+
+
+-------------Answers from very_positive_answers.csv number 17----------------
+ is, as usual, absolutely correct: feel free to let MySQLdb handle the quoting issues.
+
+In addition to that recommendation:
+
+
+The  is your friend.
+MySQLdb uses the "format" parameter style as detailed in .
+What does that mean for you?
+All parameters, whatever , should be passed to MySQLdb as strings (like this ).  MySQLdb will make sure that the values are properly converted to SQL literals.
+By the way, MySQLdb has some .
+Feel free to include more detail about your source data.  That may make diagnosing the problem easier.
+
+
+Here s one way to insert values to a MySQL database from a .csv file:
+
+
+-------------Answers from very_positive_answers.csv number 18----------------
+A quite efficient way to do this is to use , but as has been pointed out,  only lets you "freeze" final args. If you need something else, you can easily implement your own version using a . 
+
+This approach is actually a little more efficient than using a  object, since when you call the  it still has to call the original function that you pass in, so each call of the  results in two calls, and Python function / method calls are relatively slow. If you re curious, take a look at .
+
+In this example, I ve made  the second (pseudo) parameter of the function, since  nicely handles the case where it s the last arg.
+
+
+
+output
+
+
+
+
+
+We don t really need  in , we can just use the passed in arg, since that s local to :
+
+
+
+
+
+From your comments, I now understand that you want to be able to vary . Of course you can do that by calling  or  again, but if you want to modify  a lot that s not so efficient. 
+
+Your comments indicate that you want to modify  in the global context, so you might as well just use a global. You don t need to actually put the code modifying  into the global context, you can wrap it in a function, but of course you will need to use the  directive in the function that modifies . You do not need the  directive in any function which merely reads the value of , though.
+
+Here s a short demo.
+
+
+
+output
+
+
+
+
+
+However, that previous solution is somewhat unsatisfactory, since the main thrust of your question was how to do this without using a global. So here s a slight variation on that code. Instead of putting  in the global namespace, we attach it to  as a function attribute. We can do this because a Python function is an object, and it already has a whole bunch of attributes; two you may be familiar with are  and . Anyway, here s the new code, it prints the same output as the previous version.
+
+
+-------------Answers from very_positive_answers.csv number 19----------------
+You could try , which allows you to take into account additional regressors, or . 
+
+But I also have seen forecasting models based not on ARIMA style time series but on simple linear regression with extensive feature engineering (features=store+product+historical values) in production.
+
+Hope this helps.
+-------------Answers from negative_answers.csv number 0----------------
+Python does not support method/function overloading. You can only define one  method and provide defaults for optional arguments:
+
+
+-------------Answers from negative_answers.csv number 1----------------
+Using string formatting to insert column values into an SQL statement is a dangerous practice because it exposes your code to SQL Injection vulnerabilities. For example, the code in  will work for 
+
+
+
+
+
+but it will fail for 
+
+
+
+SQL injection can also have serious security implications. Perform a web search for "Little Bobby Tables" to see an example of that.
+
+Rather, you should use a parameterized query like so:
+
+
+-------------Answers from negative_answers.csv number 2----------------
+This is what the  method on strings is for:
+
+
+
+The argument is the string to split on, or you can just do  without an argument to split on any whitespace.
+-------------Answers from negative_answers.csv number 3----------------
+Don t use YACC for lval vs. rval distinguishing.  Because an lval is also almost always an rval, it creates reduce/reduce conflicts in the grammar and that makes it non-deterministic.
+
+Use a Semantic Analysis phase to check for lval correctness rather than incorporating it into the YACC grammar.
+
+For reference though, GNU Bison handles reduce/reduce conflicts by reducing by the rule which is defined first in the file.  So that might help you temporarily get around your problem.
+-------------Answers from negative_answers.csv number 4----------------
+If you re using the pure-python version of  (), this is possible:
+
+
+
+Here s an example of it in action:
+
+
+
+Output:
+
+
+
+This is exploiting the fact that the pure-python implementation of  stores each thread s  state in the  object s , using a tuple object as the key:
+
+
+
+If you re using the implementation of  written in  (which is usually the case if you just use ), I m not sure how/if you can do it.
+-------------Answers from negative_answers.csv number 5----------------
+I think I solved this.  For some reason there is a SECOND place in the registry (besides that shown by the file associations stored in HKEY_CLASSES_ROOT\Python.File\shell\open\command):
+
+
+
+This seems to be the controlling setting on my system.  The registry setting above adds the "%*" to pass all arguments to python.exe (it was missing in my registry for some reason).
+-------------Answers from negative_answers.csv number 6----------------
+The gunicorn command expect the argument to be , so following this common project structure:
+
+
+
+the command would be , the trick is identifying the package by looking for the  file.
+-------------Answers from negative_answers.csv number 7----------------
+String is a not a type in C. You should probably use  or . 
+Change the line which causes the error to : 
+
+
+-------------Answers from negative_answers.csv number 8----------------
+Your problem is you return at the first iteration of the loop, then you get only the first iteration.
+Try that:
+
+
+-------------Answers from negative_answers.csv number 9----------------
+Use the  technique.  Transcribing almost directly from Wikipedia:
+
+
+
+Because enums automatically assign values counting from zero, and we can t accidentally repeat the list in a different order when we create the name array, using the enum as the index into the  array will always point directly to the corresponding word, and you don t have to search when mapping in that direction.  So:
+
+
+
+Will print:
+
+
+
+And going the other way:
+
+
+
+
+
+EDIT
+
+If you are using C++, then, Using X-macro on paddy s answer:
+
+
+
+Or, stealing from , in C++11:
+
+
+
+... or whatever.  That s not my language.
+-------------Answers from negative_answers.csv number 10----------------
+I experienced a similar problem before due to text encoding issues. The code looks fine to me, I have ran it on a text file without any non-ascii characters, with UTF-8 encoding, and it works. Is there any gibberish in your new text file? If there is, it is likely a problem with the text file itself. Try checking that your text is encoded with the right encoding. 
+
+Maybe try running the code on a small subset of the text file and see if it works.
+-------------Answers from negative_answers.csv number 11----------------
+Apparently ZeroMQ send messages asynchronously from your send() call. That is to say, when send() returns, the message has not yet been sent, or added to the internal queue. If you send fast enough, the next time you call send, the message still hasn t been added to the queue, and thus the watermark has not been reached. You may add tens or hundreds of messages before some make it on the queue, the watermark is reached, and the blocking send behaviour kicks in.
+
+In other words, try sleeping for a fraction of a second after send() and see what happens, it should give enough time for the message to be added to the queue, so by the time of the next send, it is able to see the watermark has been reached.
+-------------Answers from negative_answers.csv number 12----------------
+If you want to change socket to non blocking , precisely accept() to NON-Blocking state then 
+
+
+-------------Answers from negative_answers.csv number 13----------------
+The problem lies here : 
+
+
+
+Use this instead 
+
+
+-------------Answers from negative_answers.csv number 14----------------
+Wait a second, this is wrong:
+
+
+
+You want
+
+
+
+You skipping 24 bytes each time through the loop, rather than 4.
+-------------Answers from negative_answers.csv number 15----------------
+The reason is the  part at the prefix absorbed the  in the input, as the opening bracket is optional and  is greedy. My way of solving the issue is using the following regex instead (note the space after first ):
+
+
+
+Assuming you always have a space before the opening bracket (if present) or the number.
+-------------Answers from negative_answers.csv number 16----------------
+Probably, the issues lies in reading from your serial port two times by executing two , thus you should do:
+
+
+-------------Answers from negative_answers.csv number 17----------------
+I had to tweak a little bit the code in the question, also to add some missing parts (that should have also been provided, btw), to get a compilable (using VStudio2010) piece.
+
+main00.c:
+
+
+
+Notes:
+
+
+You were compiling the code as C++ (as @alk noticed), and this is what completely threw you off course. In order to fix that either:
+
+
+Set your file extension to .c (and you can leave the VStudio defaults in term of compilation; that way it will compile each source file using the appropriate compiler based on its extension)
+Explicitly compile the source file as C. You can set that from VStudio Project Properties -> C/C++ -> Advanced -> Compile As, and choosing Compile as C Code. For more info, visit . Personally, I think that the former option is more straightforward
+
+Move the variable declarations before any statements (I think this might have been a candidate for setting the C++ compiler). This was a restriction for older C standards (I doubt that it still stands), but (VStudio 2010) C compiler still enforces it (at least by default)
+
+-------------Answers from negative_answers.csv number 18----------------
+When looking on the  function for the problem located in case of , the error is when writing data of the node to be removed.
+
+Error 1 - temporary  and  are declared as  but never allocated to an array.
+
+
+
+
+  Both  and  shall be allocated.
+
+
+
+
+Warning 1 - but solving that issue will reveal a malfunction in the Ring Buffer algorithm when using linked-list.
+
+
+  In the  function, the writing/push pointer  and
+  the reading/pop pointer  are managed independently. When the
+  Ring Buffer is full () the new item is deleted instead
+  of the oldest one.
+
+-------------Answers from negative_answers.csv number 19----------------
+You need to use raw_input instead of input.
+
+Input docsting :
+
+
+  input([prompt]) -> value
+  
+  Equivalent to eval(raw_input(prompt)).
+
+
+The python interpreter tries to eval your input, which will fail if it is a file name.
+-------------Answers from very_negative_answers.csv number 0----------------
+
+  How does it hide errors if you
+  explicitly cast to an int?
+
+
+It can hide the error of neglecting to include  before you call .  Without the proper function declaration, the C compiler can assume that it returns an , and an explicit cast will mask the fact that you re not calling  properly.  See  and  from the comp.lang.c FAQ.
+
+
+  Also, I was reading a c programming
+  book that stated it was good
+  programming practice to cast from a
+  void pointer including a call from
+  malloc.
+  
+  Which would be good programming
+  practice?
+
+
+There is no point to explicitly casting the result of  in C.  It potentially masks errors, and it increases the maintenance burden (if you ever decide to change the allocated type, you now have an extra site in the code that must be altered).
+
+The only time you should perform an explicit cast from  so is if you will be compiling your code as C++ since C++ does not allow that as an implicit cast. (But if you are writing C++ code, you should be using  in this case.)
+-------------Answers from very_negative_answers.csv number 1----------------
+Never!
+
+The exceptions cited don t generate he compiler warning. In cases where the compiler generates the warning, it is never a good idea.
+-------------Answers from very_negative_answers.csv number 2----------------
+Not sure if this is what you are getting at, but removing the \s* at the end will stop matching spaces.  Your \b will still look for word boundaries, so maybe that is all you need?
+
+
+
+...but then you will have sentences with two or more spaces together.  Maybe you want:
+
+
+
+Also, heed the warnings of the other commenters: if there is an empty or whitespace string in your stopwords list, it might get you in trouble.
+-------------Answers from very_negative_answers.csv number 3----------------
+
+
+After this line you do nothing with , neither store it somewhere, nor free. This results in leaking memory. Also  note, that  is a , not . Use  to free it.
+
+
+
+I d also suggest you read about reference counting and . 
+
+
+  The stack trace tells you where the leaked memory was allocated. Memcheck cannot tell you why the memory leaked, unfortunately.
+
+
+For  method it was allocated at (foo-obj.c:264), that s . You create a hash table, but don t destroy it.
+-------------Answers from very_negative_answers.csv number 4----------------
+It is time for some...
+
+DEBUGGING!!!
+
+I pasted your code in a file, and ran it:
+
+
+
+Well, 6 is a perfect number, so what is going on?
+
+Wrong indentation
+
+Reading your code, I have the feeling the  below is expected to be run on every value from the , right:
+
+
+
+That is not happening because the indentation is wrong! To be inside the , the  should be at the same line of the attribution:
+
+
+
+Strange message
+
+So, let s try again:
+
+
+
+Well, still wrong.
+
+Weirdly, it says that 2 and 1 do not divide 6. Preposterous! But it is actually a problem with the  call:
+
+
+
+ is not the divisor— is the rest!
+
+Well, you messed the variables up. That s normal when there are many variables... and they do not have meaningful names. Let s then rename  to :
+
+
+
+Of course the printed message wrong: I want to show the divisor, not the rest! Let s change that:
+
+
+
+How meaningful names help
+
+Now comes something interesting: we are adding the rest to the total...
+
+
+
+...but we should add the divisor! Let s correct that:
+
+
+
+Finally! Now the program will work correct... or will it?
+
+
+
+Dang!
+
+The range limit
+
+Why is it saying that the sum is 12? Well, let s look the loop again:
+
+
+
+Oh, now I see... Let s just call it printing the numbers:
+
+
+
+That s it! When you run the loop from 1 to  (in this case, 7), the number itself (6) is processed. Well, 6 is a divisor of 6, so it is also added to the total... duplicating it! So you should only go until number:
+
+
+
+Conclusion
+
+Does it work? See the output here:
+
+
+
+Yes!
+
+I guess it was really hard to you to see all the problems, because there were many. The secret is: learn to see one problem per time.
+-------------Answers from very_negative_answers.csv number 5----------------
+When you execute a python file with  you are executing it in the current namespace. The REPL namespace is a built-in module:
+
+
+
+which means there is no sourcefile for  to retrieve:
+
+
+
+Your next problem is that because you use  the module set for your code is always going to be wrong.  cannot determine where you defined the code, as  bypasses the normal import mechanisms:
+
+
+
+At no point does your code work with  unless you run it directly from a file that has the same source code. On some platforms it may appear to work because  ends up triggering code that sets the  attribute of the current module.
+
+The only way you actually make this work is to
+
+
+Create a fake module object in  and give it a  attribute that points to .
+Pass in a namespace to  that sets  to match the fake module object.
+
+
+Demo:
+
+
+
+Just to make it explicit, creating a copy of  only prevents  from modifying your current module namespace (or your REPL namespace). There is otherwise no difference between the dictionaries being passed to .
+-------------Answers from very_negative_answers.csv number 6----------------
+You only catch what you can handle. The word "handle" means "do something useful with" not merely "print a message and die". The print-and-die is already handled by the exception mechanism and probably does it better than you will.
+
+For example, this is not handling an exception usefully:
+
+
+
+There is nothing useful you can do, and the  is redundant as that s what uncaught exceptions will cause to happen anyway. Here is an example of a useful handling:
+
+
+
+but note that if the second open fails, there is nothing useful to do so it will travel up the call stack and possibly halt the program. What you should never do is have a bare  because it hides information about what faulted where. This will result in much head scratching when you get a defect report of "all it said was 503" and you have no idea what went wrong in .
+
+Try / except blocks that can t do any useful handling clutter up the code and visually bury the main flow of execution. Languages without exceptions force you to check every call for an error return if only to generate an error return yourself. Exceptions exist in part to get rid of that code noise.
+-------------Answers from very_negative_answers.csv number 7----------------
+(You seem like you re in way over your head. Why do you have all these global variables? Get a handle on how functions work properly, first, before you try to do something like this.)
+
+Because it s not really a copy.  is a separate list-of-lists from , but it contains all the same lists that  does.
+
+Furthermore, each time through the outer loop, you would be "restoring"  from ... but not by making a copy, just aliasing it! Thus on the second time through the loop, you end up letting  name the same list-of-lists that  does, and now the intended "backup" purpose is defeated.
+
+The entire approach to this is wrong, though. Stop trying to "make a copy and then modify it repeatedly", and start "repeatedly making modified versions".
+
+And quit trying to tell Python how to put together lists. It knows how.
+
+The code becomes much simpler when we separate out the small tasks into their own functions. First, let s make a function that gives us a list with everything except the specified element:
+
+
+
+That lets us easily make a function that gives us a matrix with everything except the indicated row and column - by asking for "a copy of the row without the specified column, for each row except the specified one":
+
+
+
+And now we can actually do the recursion. There s no need to actually build the list of minors.
+
+
+-------------Answers from very_negative_answers.csv number 8----------------
+A brute force solution. Will work, but may be considered too slow for a bigger matrix:
+
+
+
+Will output
+
+
+
+In case something else is meant with "biggest submatrix", the only function that needs to get changed is the following:
+
+
+
+which is calculating the size of a submatrix.
+
+Edit 1 ... first speedup
+
+
+
+Edit 2
+
+Ok, after converting the matrix into a matrix of 0 and 1 (as I do via the line  the problem is the same as what is called  in literature. So I googled a bit about known algorithms for this kind of problem and came across this site here  which is describing a very fast algorithm to solve this kind of problem. To summarize the points of this website, the algorithm is exploiting the structure. This can be done by using a stack in order to remember the structure profile which allows us to recalculate the width in case a narrow rectangle gets reused when an wider one gets closed.
+-------------Answers from very_negative_answers.csv number 9----------------
+
+  Does  remain in ?
+
+
+Yes, it does.
+
+
+  But what does now the format string  in a -statement achieve?
+
+
+It reads all characters from the input stream until it reaches a newline and discards them, without removing the newline from the input stream.
+
+
+  By using  all characters matching to this format string are taken from , but are not assigned?
+
+
+Correct.
+
+
+   isn t taken from  but it is used to determine the scan-operation for the according format string?
+
+
+Exactly. When  is reached, most s use  to push the character back to the input stream.
+
+
+  I know what each of those  and  do alone, but not together.
+
+
+Putting  before  does exactly what  alone does except that it does not read the input into an argument and instead discards it.
+
+If you want to discard the  afterwards, use this format string:
+
+
+-------------Answers from very_negative_answers.csv number 10----------------
+It should be as simple as this:
+
+
+
+
+  I tried the loop inside the file, but I always get me a Error, I guessed we cannot write the data into another file while opening the file?
+
+
+You totally can write data in one file while reading another. I can t tell you more about your error until you post what it said, though.
+
+There was a bit in your code about  which is not covered under "extract one column", so I did not write anything about it.
+-------------Answers from very_negative_answers.csv number 11----------------
+Why not use  (since C11)?
+
+Casting a pointer to  is an invitation to disaster (aka undefined behaviour). Just think about a 64 bit machine with 32 bit (standard for most x86). If you need arithmetics on pointers, use  (I would not recommend using , though). However, even here, arithmetic on the value is still undefined (but very likely safe for platforms with single, linear address space).
+
+Standard note: do not cast  as returned by .
+
+Update:
+
+Ok, lets take the code above and give it a proper formating and typing:
+
+
+
+Do not use magic numbers in your code! 2 months later you will wonder what that means.
+
+
+
+How are those used?
+
+
+
+This just rounds up the address to the next aligned boundary (here: 64 bytes).
+
+
+
+Not sure what the later is good for, but with the  given, that will result in disaster due to accessing beyond the allocated block if used with the same indexes (0..) as .
+
+In any way, I would be very, very careful with this code. Not only it apparently is badly written/documented, but it seems also to contain errors.
+-------------Answers from very_negative_answers.csv number 12----------------
+It took me a while to figure out but the problem was fairly simple. The problem was in the use of 
+
+
+
+while the  storage was specified as persistent. 
+
+To me, it was non-intuitive that persistent journals doesn t go to runtime journal buffer. So the only way to simulate the functionality of  was by opening the local journals and seek the tail.
+-------------Answers from very_negative_answers.csv number 13----------------
+You can just keep calling deferred to run your task when you get to the end of each phase.
+Other queues just allow you to control the scheduling and rate, but work the same.
+
+I track the elapsed time in the task, and when I get near the end of the processing window the code stops what it is doing, and calls defer for the next task in the chain or continues where it left off, depending if its a discrete set up steps or a continues chunk of work. This was all written back when tasks could only run for 60 seconds.
+
+However the problem you will face (it doesn t matter if it s a normal task queue or deferred) is that each stage could fail for some reason, and then be re-run so each phase must be idempotent.
+
+For long running chained tasks, I construct an entity in the datastore that holds the description of the work to be done and tracks the processing state for the job and then you can just keep rerunning the same task until completion. On completion it marks the job as complete.
+-------------Answers from very_negative_answers.csv number 14----------------
+Not a pythonic solution, but for anyone struggling having the same problem, npm allows a  param in the  file, where you can directly link up your executable. 
+
+
+-------------Answers from very_negative_answers.csv number 15----------------
+Well, first, you are missing indentation for your function declarations. Since you managed to get the unpacking error, presumably the actual code is formatted correctly and you copied it wrong. As for your code, there are so many things wrong with it, it s hard to know where to start: you are looping over two different variables ( and ) and two ranges when you should have one, you aren t actually using the variables in the loop, you re still comparing the entire lists within each iteration of the loop, and you re returning within the loop, which means that it will terminate during the first iteration.
+
+The following would get a list of the results:
+
+
+
+But you could just do 
+
+
+
+(This will return a list of /, but when you take the sum, they will be coerced to integers.
+
+With the Pandas package, it s even simpler:
+
+
+-------------Answers from very_negative_answers.csv number 16----------------
+In C, if you don t have internationalization (I18N) or localization (L10N) to worry about, then pointers to constant data is a good way to supply error message strings.  However, you often find that the error messages need some supporting information (such as the name of the file that could not be opened), which cannot really be handled by constant data.
+
+With I18N/L10N to worry about, I d recommend storing the fixed message strings for each language in an appropriately formatted file, and then using  to  read  the file into memory before you fork any threads.  The area so mapped should then be treated as read-only (use  in the call to ).
+
+This avoids complicated issues of memory management and avoids memory leaks.
+
+Consider whether to provide a function that can be called to get the latest error.  It can have a prototype such as:
+
+
+
+I m assuming that the error number is returned by some other function call; the library function then consults any threadsafe memory it has about the current thread and the last error condition returned to that thread, and formats an appropriate error message (possibly truncated) into the given buffer.
+
+With C++, you can return (a reference to) a standard String from the error reporting mechanism; this means you can format the string to include the file name or other dynamic attributes.  The code that collects the information will be responsible for releasing the string, which isn t (shouldn t be) a problem because of the destructors that C++ has.  You might still want to use  to load the format strings for the messags.
+
+You do need to be careful about the files you load and, in particular, any strings used as format strings.  (Also, if you are dealing with I18N/L10N, you need to worry about whether to use the   notation to allow for argument reordering; and you have to worry about different rules for different cultures/languages about the order in which the words of a sentence are presented.)
+-------------Answers from very_negative_answers.csv number 17----------------
+There are two problems with your code.  One of them has been already pointed out, when defining a class, you need to use the  keyword, since  keyword defines a function or a method. 
+
+The second problem is that the call 
+
+
+
+will import the module called Image into the  namespace, so that  in your code will refer to the module.  It is not an object or class, so 
+
+
+
+will attempt to derive a new class from a module, which will fail. 
+
+The  module contains a class called . After importing the module into the  namespace, you would refer to this class as .   To extend this class, you could do for example this:
+
+
+
+To make this less confusing, you could also import the Image module into a different namespace:
+
+
+
+The problem with all that is, the PIL does not seem to be designed to allow this kind of extension to the Image class.  Its modules provide bunch of functions that take instances of Image as arguments and return new instances of Image.  there are only few methods in the actual Image class.  So what you probably want to do is write a function that will take an instance if Image and create a new instance of Image, rather than extending the Image class by a new method. For example, something like this:
+
+
+-------------Answers from very_negative_answers.csv number 18----------------
+your example is a bit magic for me! I d suggest reusing the magic already in the  codebase in the form of a .  I ve attempted to make the following code compatible with  servers (i.e. MS Windows) but I only have access to Linux machines, so can t test there
+
+start by pulling in dependencies and defining our custom  and registering a method to get out a  singleton:
+
+
+
+this might need to be more complicated if creating the initial state is expensive and hence should only be done when it s needed.  note that the OPs version of initialising state during process startup will cause everything to reset if gunicorn starts a new worker process later, e.g. after killing one due to a timeout
+
+next I define a function to get access to this shared state, similar to how the OP does it:
+
+
+
+though I m not sure if I d recommend doing things like this.  when  starts it spawns lots of processes that all race to run this code and it wouldn t surprise me if this could go wrong sometimes. also if it happens to kill off the server process (because of e.g. a timeout) every other process will start to fail
+
+that said, if we wanted to use this we would do something like:
+
+
+
+this uses Unix domain sockets (passing a string rather than a tuple as an address) to lock this down a bit more.
+
+also note this has the same race conditions as the OP s code: incrementing a number will cause the value to be transferred to the worker s process, which is then incremented, and sent back to the server.  I m not sure what the  is supposed to be protecting, but I don t think it ll do much
+-------------Answers from very_negative_answers.csv number 19----------------
+You want to find the approximation of a definite integral of a quadratic function. There are several issues with your code:
+
+
+What is the restriction of A &ge; 1 and B &ge; 1 for? A parabola is defined over the whole abscissa. If anything, you should enforce that the input is numeric and that two values were given.
+You don t need to find the vertex of the parabola. Your task is to create small rectangles based on the left x value of each interval as the image shows. Therefore, you don t need p and q. And you shouldn t enforce that the vertex is in the first quadrant on the input without indication.
+Why are the coefficients of the parabola integers? Make them s to be consistent.
+Because you don t need to know the vertex, you don t need to split your loop in two. In your code, you don t even check that p is between A and B, which is a requirement of cour code.
+What is the inner loop for? You are supposed to just calculate the area of the current rectangle here. What s worse: you re-use the variable  as iteration variable, which means you lose it as an indicator of how large your current interval is. 
+The repeated incrementing of  may lead to an accumulated floating-point error when the number of intervals is large. A common technique to avoid this is to use an integer variable for loop control and the determine the actual floating-point variable by multiplication.
+The absolute value as a convergence criterion may lead to problems with small and big numbers. The iteration ends too early for small values and it may never reach the criterion for big numbers, where a difference of 0.001 cannot be resolved.
+
+
+Here s a version of your code that puts all that into practice:
+
+
+
+The code is well-behaved for empty intervals (where A = B) or reversed intervals (where A &gt; B). The inpt is still quick and dirty. It should really heck that the entered values are valid numbers. There s no need to restrict the input arbitrarily, though.
